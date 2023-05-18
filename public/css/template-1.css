@@ -163,19 +163,81 @@
 }
 
 .hero_text {
-  background: gray;
-  width: 200px;
-  height: 100px;
+  /* background: gray; */
+  /* width: 200px;
+  height: 100px; */
   /* overflow-x: hidden;
   overflow-y: hidden;
   text-overflow: ellipsis; */
 
-  overflow: auto;
-  resize: both;
+  /* overflow: auto;
+  resize: both; */
 }
 
 .hero_title {
   max-width: 660px;
   margin: 0 auto;
   margin-bottom: 12px;
+}
+
+body {
+  /* background-image: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(0, 194, 255, 0.3) 0%,
+    rgba(217, 217, 217, 0) 100%
+  ); */
+  /* background-image: url('/img/test.png'); */
+}
+
+.page {
+  /* background-color: transparent; */
+  /* background-image: url('/img/test2.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; */
+}
+
+.hero_text {
+  /* background-color: transparent; */
+  /* width: 600px;
+  height: 400px;
+  background-image: url('/img/test.png');
+  background-attachment: fixed; */
+  background-image: url('/img/test2.jpg');
+  border: 30px solid transparent;
+  padding: 20px;
+  color: yellow;
+  background-clip: padding-box;
+}
+
+.card_block {
+  /* list-style-type: decimal; */
+  list-style-image: url('/img/test3.png');
+  list-style-position: inside;
+  padding: 0;
+}
+.card_description_item {
+  display: list-item;
+}
+
+/* .table tr {
+  border: 1px solid #343a40;
+} */
+.table tr td {
+  border: 1px solid #343a40;
+  border-bottom: 1px solid red;
+  border-right: 1px solid green;
+}
+.table {
+  table-layout: auto;
+  width: 300px;
+  border-collapse: separate;
+  border-spacing: 10px;
+  empty-cells: show;
+  caption-side: top;
+}
+
+.nav_link::before,
+.nav_link::after {
+  content: open-quote;
 }
