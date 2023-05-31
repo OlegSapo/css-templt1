@@ -1,3 +1,19 @@
+@import url('/css/var.css');
+
+@font-face {
+  font-family: 'Segment';
+  src: url('/font/Segment-Regular.otf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Segment';
+  src: url('/font/Segment-SemiBold.otf');
+  font-weight: 600;
+}
+
+@layer normalize, main, component, style;
+
 @keyframes tstAnim {
   from {
     top: 0;
@@ -22,32 +38,6 @@
     left: 0;
     background-color: yellow;
   }
-}
-
-:root {
-  --space-m: 12px;
-  --space-xm: 16px;
-  --space-l: 24px;
-  --space-b: 36px;
-
-  --size-s: 14px;
-  --size-d: 16px;
-  --size-l: 20px;
-
-  --color-border: #dee2e6;
-  --color-primary: rgb(46, 46, 255);
-  --color-white: #fff;
-  --color-title: #212529;
-  --color-text: #343a40;
-
-  --border-radius: 12px;
-
-  --weight-title: 500;
-  --weight-text: 400;
-
-  --page-width: 960px;
-
-  font-family: 'Roboto';
 }
 
 /* ================== */
@@ -224,27 +214,31 @@
   color: var(--color-text);
 }
 
-.button {
-  display: inline-block;
-  text-decoration: none;
-  font-size: var(--size-d);
-  padding: var(--space-m) var(--space-xm);
-  border-radius: var(--border-radius);
+@layer main {
+  .button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: var(--size-d);
+    padding: var(--space-m) var(--space-xm);
+    border-radius: var(--border-radius);
 
-  transition: opacity 1s, background-color 1s;
+    transition: opacity 1s, background-color 1s;
+  }
+
+  .button:hover {
+    opacity: 0.7;
+
+    background-color: green;
+  }
 }
 
-.card_button {
-  display: inline-block;
-  color: var(--color-white);
-  font-size: var(--size-d);
-  background: var(--color-primary);
-}
-
-.button:hover {
-  opacity: 0.7;
-
-  background-color: green;
+@layer component {
+  .card_button {
+    display: inline-block;
+    color: var(--color-white);
+    font-size: var(--size-d);
+    background: var(--color-primary);
+  }
 }
 
 .form {
@@ -277,9 +271,10 @@
 
 .form_button {
   background-color: var(--color-white);
-  width: 100%;
-  max-width: 160px;
+  width: 160px;
+  /* max-width: 160px; */
   color: var(--color-text);
+  text-align: center;
 }
 
 .hero_slider_icon {
@@ -360,6 +355,86 @@ body:hover .modal {
   caret-color: red;
   border: 1px solid var(--color-title);
 }
+
 :root {
   scroll-behavior: smooth;
+}
+
+.blog {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media all and (min-width: 601px) and (max-width: 800px) {
+  .blog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media all and (min-width: 0px) and (max-width: 600px) {
+  .blog {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.form {
+  gap: var(--space-l);
+}
+
+@media all and (width <= 600px) {
+  .form {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .form_info {
+    max-width: 300px;
+    width: 100%;
+    line-height: 150%;
+  }
+
+  .form_content {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.hero_container {
+  container-type: inline-size;
+  container-name: hero;
+
+  /* min-height: 500px; */
+}
+
+@container hero (width < 960px) {
+  .hero {
+    flex-direction: column;
+  }
+}
+
+@layer style {
+  .card_button {
+    background-color: red;
+  }
+}
+
+.ex {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-left: 1ex;
+}
+
+/* .test {
+  position: absolute;
+  background-color: red;
+  top: 0;
+  left: 0;
+
+  height: 50vh;
+  width: 50vw;
+} */
+
+.hero_title {
+  font-size: 5cqw;
 }
